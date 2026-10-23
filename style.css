@@ -1,0 +1,311 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #202124;
+    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* Top bar styling */
+.top-bar {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    border-bottom: 1px solid #dadce0;
+}
+
+.top-bar h1 {
+    margin: 0;
+    color: #5f6368;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.icon-button:hover,
+.text-button:hover {
+    background: #f1f3f4;
+}
+
+.icon-button img {
+    width: 21px;
+    height: 21px;
+}
+
+.top-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.profile-button img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Search box styling */
+.search-box {
+    width: min(650px, 55%);
+    min-width: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto;
+    padding: 0 16px;
+    border-radius: 8px;
+    background: #f1f3f4;
+}
+
+.search-box img {
+    width: 20px;
+    height: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+.page-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 235px;
+    flex: 0 0 235px;
+    padding: 18px 10px;
+}
+
+.sidebar-hidden {
+    display: none;
+}
+
+.nav-button {
+    width: 100%;
+    padding: 14px 24px;
+    border: 0;
+    border-radius: 0 24px 24px 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.nav-button.active {
+    background: #feefc3;
+}
+
+main {
+    width: 100%;
+    padding: 32px 24px;
+}
+
+.note-editor {
+    width: min(600px, 100%);
+    margin: 0 auto 38px;
+    padding: 14px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px #0000001a;
+}
+
+.note-editor input,
+.note-editor textarea {
+    width: 100%;
+    padding: 8px 4px;
+    border: 0;
+    outline: 0;
+    resize: vertical;
+}
+
+.note-editor input {
+    font-weight: bold;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.add-button,
+.text-button {
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.add-button {
+    background: #fbbc04;
+}
+
+.list-heading {
+    margin: 0 0 16px;
+    color: #5f6368;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.note-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    align-items: start;
+    gap: 16px;
+}
+
+.note-list.list-view {
+    grid-template-columns: minmax(220px, 600px);
+    justify-content: center;
+}
+
+.note-card {
+    min-height: 120px;
+    padding: 14px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.note-card-content {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.note-card-content:focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+.note-card-content h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.note-card-content p {
+    margin: 0 0 18px;
+    white-space: pre-wrap;
+}
+
+.edit-dialog {
+    width: min(600px, calc(100% - 32px));
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px #00000033;
+}
+
+.edit-dialog::backdrop {
+    background: #00000055;
+}
+
+.edit-note-form {
+    width: 100%;
+    margin: 0;
+}
+
+.edit-note-form h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.empty-message {
+    color: #5f6368;
+    text-align: center;
+}
+
+.empty-message[hidden] {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .top-bar h1 {
+        font-size: 20px;
+    }
+
+    .search-box {
+        width: auto;
+        flex: 1 1 100%;
+        order: 1;
+        margin: 0;
+    }
+
+    .top-bar-actions {
+        margin-left: auto;
+        gap: 0;
+    }
+
+    .icon-button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-button img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .sidebar {
+        width: 150px;
+        flex-basis: 150px;
+    }
+
+    main {
+        padding: 24px 14px;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Zaio Google Keep</title>
+    <link rel="icon" type="image/png" href="assets/google-keep.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar for Google Keep  -->
+    <header class="top-bar">
+        <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Toggle menu" title="Menu">
+            <img src="assets/menu-icon.svg" alt="">
+        </button>
+        <img class="logo" src="assets/google-keep.png" alt="Google Keep">
+        <h1>Keep</h1>
+
+        <label class="search-box">
+            <img src="assets/search-icon.svg" alt="">
+            <input type="search" id="search" placeholder="Search" aria-label="Search notes">
+        </label>
+
+        <div class="top-bar-actions">
+            <button class="icon-button" id="refresh-button" type="button" aria-label="Refresh notes" title="Refresh">
+                <img src="assets/refresh-icon.svg" alt="refresh-icon">
+            </button>
+            <button class="icon-button" id="layout-button" type="button" aria-label="Toggle notes layout" aria-pressed="false" title="Toggle notes layout">
+                <img src="assets/grid-icon.svg" alt="grid-icon">
+            </button>
+            <button class="icon-button" type="button" aria-label="Settings" title="Settings">
+                <img src="assets/settings-icon.svg" alt="settings-icon">
+            </button>
+            <button class="icon-button" type="button" aria-label="Google apps" title="Google apps">
+                <img src="assets/apps-icon.svg" alt="apps-icon">
+            </button>
+            <button class="icon-button profile-button" type="button" aria-label="Google account" title="Google account">
+                <img src="assets/profile-icon.svg" alt="profile-icon">
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Sidebar Navigation for Notes and Archive -->
+
+    <div class="page-content">
+        <aside class="sidebar" id="sidebar">
+            <nav aria-label="Notes">
+                <button class="nav-button active" id="all-notes-button" type="button">All notes</button>
+                <button class="nav-button" id="archive-button" type="button">Archive</button>
+            </nav>
+        </aside>
+
+        <main>
+            <form class="note-editor" id="note-form">
+                <label class="visually-hidden" for="title">Title</label>
+                <input type="text" id="title" placeholder="Title">
+                <label class="visually-hidden" for="note">Take a note...</label>
+                <textarea id="note" placeholder="Take a note..." rows="3"></textarea>
+                <div class="form-buttons">
+                    <button class="add-button" type="submit">Add note</button>
+                    <button class="text-button" id="clear-button" type="button">Clear</button>
+                </div>
+            </form>
+
+            <h2 class="list-heading" id="list-heading">All notes</h2>
+            <section class="note-list" id="note-list-result" aria-label="Your notes"></section>
+            <p class="empty-message" id="empty-message">Your notes will show up here.</p>
+        </main>
+    </div>
+
+    <!-- This is a popup for editing an existing note -->
+    <dialog class="edit-dialog" id="edit-dialog" aria-labelledby="edit-dialog-heading">
+        <form class="note-editor edit-note-form" id="edit-note-form">
+            <h2 id="edit-dialog-heading">Edit note</h2>
+            <label class="visually-hidden" for="edit-title">Title</label>
+            <input type="text" id="edit-title" placeholder="Title">
+            <label class="visually-hidden" for="edit-note">Note</label>
+            <textarea id="edit-note" placeholder="Take a note..." rows="5"></textarea>
+            <div class="form-buttons">
+                <button class="add-button" type="submit">Save</button>
+                <button class="text-button" id="cancel-edit-button" type="button">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
